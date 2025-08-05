@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binaural Beats Widget</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #f5f5f7;
+            margin: 0;
+            color: #1d1d1f;
+            text-align: center;
+        }
+        .widget {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 16px;
+            background-color: #ffffff;
+            border-radius: 0;
+        }
+        .btn {
+            margin: 6px;
+            padding: 10px 16px;
+            background-color: #007aff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 14px;
+            font-weight: 590;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .btn:hover {
+            background-color: #0051d5;
+            transform: translateY(-1px);
+        }
+        .status {
+            margin-top: 12px;
+            font-size: 13px;
+            color: #515154;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="widget">
+        <div>
+            <button class="btn" onclick="startPreset('Focus Mode')">Focus Mode</button>
+            <button class="btn" onclick="startPreset('Deep Focus')">Deep Focus</button>
+            <button class="btn" onclick="startPreset('Alert Study')">Alert Study</button>
+            <button class="btn" onclick="startPreset('Calm Focus')">Calm Focus</button>
+        </div>
+        <button class="btn" onclick="stopAudio()">Stop</button>
+        <div class="status" id="statusDisplay">Status: Stopped</div>
+    </div>
+
+    <script>
+        function startPreset(preset) {
+            window.electronAPI.startPreset(preset);
+        }
+
+        function stopAudio() {
+            window.electronAPI.stopAudio();
+        }
+
+        window.electronAPI.getStatus().then(status => {
+            updateStatusDisplay(status);
+        });
+
+        window.electronAPI.onStatusUpdate((event, status) => {
+            updateStatusDisplay(status);
+        });
+
+        function updateStatusDisplay(status) {
+            const statusDisplay = document.getElementById('statusDisplay');
+            if (status.isPlaying) {
+                statusDisplay.textContent = `Status: Playing ${status.currentPreset}`;
+            } else {
+                statusDisplay.textContent = "Status: Stopped";
+            }
+        }
+    </script>
+</body>
+</html>

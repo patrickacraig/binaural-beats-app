@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binaural Beats for Studying</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎧 Binaural Beats for Studying</h1>
+            <p>Generate focused audio frequencies to enhance your study sessions</p>
+        </header>
+
+        <div class="controls">
+            <div class="preset-section">
+                <h3>Study Presets</h3>
+                <div class="preset-buttons">
+                    <button class="preset-btn" data-frequency="40" data-beat="10">
+                        Focus Mode
+                        <span class="preset-info">40Hz + 10Hz Beat</span>
+                    </button>
+                    <button class="preset-btn" data-frequency="40" data-beat="8">
+                        Deep Focus
+                        <span class="preset-info">40Hz + 8Hz Beat</span>
+                    </button>
+                    <button class="preset-btn" data-frequency="200" data-beat="10">
+                        Alert Study
+                        <span class="preset-info">200Hz + 10Hz Beat</span>
+                    </button>
+                    <button class="preset-btn" data-frequency="150" data-beat="6">
+                        Calm Focus
+                        <span class="preset-info">150Hz + 6Hz Beat</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="custom-section">
+                <h3>Custom Settings</h3>
+                <div class="control-group">
+                    <label for="baseFreq">Base Frequency (Hz):</label>
+                    <input type="range" id="baseFreq" min="40" max="400" value="200" step="10">
+                    <span id="baseFreqValue">200</span>
+                </div>
+
+                <div class="control-group">
+                    <label for="beatFreq">Beat Frequency (Hz):</label>
+                    <input type="range" id="beatFreq" min="1" max="20" value="10" step="0.5">
+                    <span id="beatFreqValue">10</span>
+                </div>
+
+                <div class="control-group">
+                    <label for="volume">Volume:</label>
+                    <input type="range" id="volume" min="0" max="1" value="0.3" step="0.1">
+                    <span id="volumeValue">30%</span>
+                </div>
+            </div>
+
+            <div class="playback-controls">
+                <button id="playBtn" class="control-btn primary">▶ Start</button>
+                <button id="stopBtn" class="control-btn" disabled>⏹ Stop</button>
+            </div>
+
+            <div class="timer-section">
+                <h3>Study Timer</h3>
+                <div class="timer-controls">
+                    <input type="number" id="timerMinutes" min="1" max="120" value="25" placeholder="Minutes">
+                    <button id="startTimer" class="control-btn">Start Timer</button>
+                    <button id="stopTimer" class="control-btn" disabled>Stop Timer</button>
+                </div>
+                <div id="timerDisplay" class="timer-display">25:00</div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3>About Binaural Beats for Studying</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <strong>Alpha Waves (8-12 Hz)</strong>
+                    <p>Promote relaxed focus and creative thinking</p>
+                </div>
+                <div class="info-card">
+                    <strong>Beta Waves (13-30 Hz)</strong>
+                    <p>Enhance concentration and analytical thinking</p>
+                </div>
+                <div class="info-card">
+                    <strong>Gamma Waves (30+ Hz)</strong>
+                    <p>Boost cognitive function and memory</p>
+                </div>
+            </div>
+            <p><strong>Instructions:</strong> Use headphones for best results. Start with lower volumes and gradually increase as needed. Take breaks every 45-60 minutes.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

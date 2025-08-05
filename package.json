@@ -1,0 +1,56 @@
+{
+  "name": "binaural-beats-app",
+  "productName": "Binaural Beats for Studying",
+  "version": "1.0.0",
+  "description": "A simple, effective web application that generates binaural beats optimized for studying and focus. Built with vanilla HTML, CSS, and JavaScript using the Web Audio API.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build-mac": "electron-builder --mac",
+    "dist": "electron-builder --publish=never",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["binaural", "beats", "study", "focus", "audio", "meditation"],
+  "author": "Patrick Craig",
+  "license": "MIT",
+  "build": {
+    "appId": "com.patrickcraig.binauralbeats",
+    "productName": "Binaural Beats for Studying",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!node_modules/**/*",
+      "!dist/**/*",
+      "!.git/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        },
+        {
+          "target": "zip",
+          "arch": ["x64", "arm64"]
+        }
+      ],
+      "minimumSystemVersion": "10.14"
+    },
+    "dmg": {
+      "title": "Binaural Beats for Studying",
+      "backgroundColor": "#667eea",
+      "window": {
+        "width": 600,
+        "height": 400
+      }
+    }
+  },
+  "devDependencies": {
+    "electron": "^37.2.5",
+    "electron-builder": "^26.0.12"
+  }
+}
