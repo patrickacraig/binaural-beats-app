@@ -17,6 +17,7 @@
   "build": {
     "appId": "com.patrickcraig.binauralbeats",
     "productName": "Binaural Beats for Studying",
+    "icon": "icon.png",
     "directories": {
       "output": "dist"
     },
